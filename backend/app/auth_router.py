@@ -144,6 +144,7 @@ async def login(
     # --------------------------------------------------
     # Face check (only if required)
     # --------------------------------------------------
+    score = 1
     if login_type in ["face", "both"]:
         if image is None:
             raise HTTPException(400, "Face image required")
@@ -163,7 +164,7 @@ async def login(
             raise HTTPException(401, f"Face mismatch. Score={score}")
 
     return {
-        "message": f"{login_type} login successful",
+        "message": f"{login_type} login successful {score}",
         "email": user.email,
         "used_method": login_type
     }
@@ -308,4 +309,3 @@ async def update_login_method(
 
     finally:
         db.close()
-
