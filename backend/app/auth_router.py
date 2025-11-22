@@ -163,7 +163,7 @@ async def login(
             raise HTTPException(401, f"Face mismatch. Score={score}")
 
     return {
-        "message": f"{login_type} login successful {score}",
+        "message": f"{login_type} login successful",
         "email": user.email,
         "used_method": login_type
     }
@@ -308,3 +308,4 @@ async def update_login_method(
 
     finally:
         db.close()
+
