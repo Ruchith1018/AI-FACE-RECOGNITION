@@ -5,7 +5,7 @@ from app.utils.helpers import distance2bbox, distance2kps, align_face
 
 # USE THE ONNX PATHS YOU UPLOADED
 DETECTOR_PATH = "models/det_2.5g.onnx"
-RECOGNIZER_PATH = "models/w600k_r50.onnx"
+RECOGNIZER_PATH = "models/w600k_r50_fp16.onnx"
 
 class FaceEngine:
     def __init__(self, det_path: str = DETECTOR_PATH, rec_path: str = RECOGNIZER_PATH):
